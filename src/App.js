@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
 function App() {
+  const [response, setResponse] = useState('');
+
+  const handleButtonClick = async () => {
+    try {
+      const res = await fetch('https://s8mtxsgtgh.execute-api.us-east-1.amazonaws.com/dev/');
+      const data = await res.json();
+      setResponse(data.body);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      setResponse('Error fetching data');
+    }
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>TaskFlow Frontend</h1>
+        <button onClick={handleButtonClick}>Fetch Data</button>
+        <p>Response: {response}</p>
       </header>
     </div>
   );
 }
 
 export default App;
+
