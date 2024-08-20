@@ -3,7 +3,7 @@
 ## 📝 Project Overview
 **TaskFlow** is a cutting-edge project designed to build a fully automated CI/CD pipeline for deploying applications on AWS using serverless technologies and modern DevOps practices. The goal is to create an efficient, scalable, and cost-effective solution for managing application deployment and operations.
 
----
+- - -
 
 ## 🔧 Technologies and Tools
 | Category        | Technology                | Description                                                |
